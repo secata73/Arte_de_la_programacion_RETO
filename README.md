@@ -92,3 +92,57 @@ El reto fue trabajado en equipo, donde cada integrante tuvo que implementar una 
 - `Feat: Snake and food get random colors (except red)`  
 - `Fix: Prevent food from leaving the window`  
 - `Docs: Update README and final documentation`  
+# Arte\_de\_la\_programacion\_RETO
+
+Este es el RETO de la entrega final para la semana TEC *El arte de la programación*.
+
+## Descripción
+
+Este proyecto consiste en la modificación del clásico videojuego **Memory**, basado en el código de Grant Jenks.
+El reto fue trabajado en equipo, donde cada integrante tuvo que implementar una funcionalidad diferente y colaborar mediante el uso de GitHub con commits, ramas y merges.
+
+## Cambios realizados
+
+1. **Contador de taps (clics del usuario)**
+
+   * Se agregó un contador que registra cuántas veces el jugador ha hecho clic.
+   * El valor se muestra en la parte superior izquierda de la pantalla durante toda la partida.
+
+2. **Detección de juego completado**
+
+   * Se agregó una validación que detecta cuando todas las fichas han sido destapadas.
+   * Al finalizar, se despliega un mensaje de felicitación en la pantalla.
+
+3. **Centrado de los valores en cada cuadro**
+
+   * Los símbolos ahora aparecen centrados dentro de cada ficha, mejorando la estética y la legibilidad.
+
+4. **Innovación: uso de emojis en lugar de números**
+
+   * Para mejorar la jugabilidad y estimular la memoria visual, los números fueron reemplazados por **emojis de frutas, verduras y alimentos**.
+   * Esto hace el juego más intuitivo, colorido y atractivo para los usuarios.
+
+## Instrucciones de uso
+
+1. Ejecutar el archivo `memory.py` en Python 3.
+2. El objetivo es encontrar todos los pares de fichas iguales haciendo clic en ellas.
+3. El juego termina cuando se destapan todos los pares, mostrando un mensaje de felicitación.
+
+## Requisitos
+
+* Python 3
+* Librería `turtle`
+* Librería `freegames` (instalar con `pip install freegames`)
+
+## Autor
+
+* \[Sebastián Camacho]
+
+## Historia de commits esperada
+
+* `Initial commit: Add original Memory game code`
+* `Feat: Add tap counter`
+* `Feat: Detect game completion`
+* `Fix: Center symbols inside tiles`
+* `Feat: Replace numbers with emojis for better memory aid`
+* `Docs: Update code comments and README`
