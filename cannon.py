@@ -23,8 +23,8 @@ def tap(x, y):
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.x = (x + 500) / 20
+        speed.y = (y + 500) / 20
 
 
 def inside(xy):
@@ -55,7 +55,7 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 2
 
     if inside(ball):
         speed.y -= 0.35
@@ -71,8 +71,8 @@ def move():
     draw()
 
     for target in targets:
-        if not inside(target):
-            return
+        if target.x<-200:
+            target.x=200
 
     ontimer(move, 50)
 
