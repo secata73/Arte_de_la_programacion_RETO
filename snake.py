@@ -8,34 +8,50 @@ Exercises
 4. Change the snake to respond to mouse clicks.
 """
 
-from random import randrange
 from turtle import *
-
+from random import randrange, choice
 from freegames import square, vector
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
+# Lista de colores permitidos (sin rojo)
+colors = ["blue", "purple", "orange", "yellow", "pink"]
+
+# Selección aleatoria de colores distintos
+snake_color = choice(colors)
+food_color = choice(colors)
+while food_color == snake_color:
+    food_color = choice(colors)
+
 
 def change(x, y):
-    """Change snake direction."""
+    "Cambia la dirección de la serpiente."
     aim.x = x
     aim.y = y
 
 
 def inside(head):
-    """Return True if head inside boundaries."""
+    "Regresa True si la cabeza está dentro de los límites."
     return -200 < head.x < 190 and -200 < head.y < 190
 
 
+def move_food():
+    "Mueve la comida un paso al azar sin salirse de la ventana."
+    step = choice([vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)])
+    new_pos = food + step
+    if inside(new_pos):
+        food.move(step)
+
+
 def move():
-    """Move snake forward one segment."""
+    "Mueve la serpiente un segmento hacia adelante."
     head = snake[-1].copy()
     head.move(aim)
 
     if not inside(head) or head in snake:
-        square(head.x, head.y, 9, 'red')
+        square(head.x, head.y, 9, 'red')  # Rojo = Game Over
         update()
         return
 
@@ -50,14 +66,19 @@ def move():
 
     clear()
 
+    # Dibujar la serpiente
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, snake_color)
 
-    square(food.x, food.y, 9, 'green')
+    # Dibujar la comida
+    square(food.x, food.y, 9, food_color)
+
     update()
+    move_food()  # Movimiento aleatorio de la comida
     ontimer(move, 100)
 
 
+# --- Configuración de la ventana ---
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
