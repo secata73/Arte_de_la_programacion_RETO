@@ -189,3 +189,34 @@ El reto fue trabajado en equipo, donde cada integrante tuvo que implementar una 
 * `Feat: Replace numbers with emojis for better memory aid`
 * `Docs: Update code comments and README`
 *  main
+
+"""
+==========================================================
+REPORTE DE ACTIVIDAD 3: Juego del Pacman (Gpo 101)
+Por Pedro Escobedo - A01787721
+==========================================================
+
+Propósito:
+Modificar y documentar el videojuego Pacman con nuevas 
+funcionalidades, trabajando en colaboración y siguiendo 
+los estándares del Instituto.
+
+Cambios implementados:
+1. Tablero cambiado (tiles modificados).
+2. Número de fantasmas parametrizable (GHOST_STARTS).
+3. Posición inicial de Pacman cambiada (vector(-160, 160)).
+4. Velocidad de fantasmas ajustable (GHOST_SPEED y TIMER_MS).
+5. Fantasmas más listos (IA greedy con aleatoriedad 20%).
+
+Documentación:
+- Se añadieron docstrings a las funciones principales.
+- Se comentaron las secciones de configuración, tablero 
+  e inteligencia de los fantasmas.
+
+🎯 Conclusión:
+El proyecto Pacman fue modificado exitosamente para cumplir 
+con las funcionalidades solicitadas. Se documentó el código, 
+se gestionó con commits en GitHub y se prepararon los archivos 
+para la entrega.
+==========================================================
+"""
