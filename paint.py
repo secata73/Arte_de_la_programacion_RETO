@@ -37,18 +37,64 @@ def square(start, end):
 
 
 def circle(start, end):
-    """Draw circle from start to end."""
-    pass  # TODO
+    """Draw circle with center at start and radius up to end."""
+    # Calcula radio como distancia entre start y end
+    r = ((end.x - start.x)**2 + (end.y - start.y)**2) ** 0.5
+    if r <= 0:
+        return
+
+    # Posiciónate en el borde derecho del círculo
+    up()
+    goto(start.x, start.y)
+    setheading(0)
+    forward(r)
+    left(90)
+
+    # Traza un círculo aproximado con segmentos
+    down()
+    begin_fill()
+    steps = 60
+    circumference = 2 * 3.141592653589793 * r
+    step_length = circumference / steps
+    turn = 360 / steps
+    for _ in range(steps):
+        forward(step_length)
+        left(turn)
+    end_fill()
 
 
 def rectangle(start, end):
-    """Draw rectangle from start to end."""
-    pass  # TODO
+    """Draw rectangle from start (one corner) to end (opposite corner)."""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    width = end.x - start.x
+    height = end.y - start.y
+
+    for _ in range(2):
+        forward(width)
+        left(90)
+        forward(height)
+        left(90)
+
+    end_fill()
 
 
 def triangle(start, end):
-    """Draw triangle from start to end."""
-    pass  # TODO
+    """Draw equilateral triangle using horizontal side from start to end."""
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    side = end.x - start.x  # longitud de la base
+    for _ in range(3):
+        forward(side)
+        left(120)
+
+    end_fill()
 
 
 def tap(x, y):
@@ -79,6 +125,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('yellow'), 'Y')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
